@@ -74,3 +74,17 @@ select *from Patient;
 
 
 ---------------------------4.Aggregate--------------------------------------------------
+
+-- Q12 Count the total number of appointments.
+select count(*) as total_appointment from Appointment;
+
+
+--Q13 Calculate the total revenue generated from all appointment fees.
+
+-- Q14 Find the average fee per appointment.
+
+
+
+-- Q15 Show the number of appointments handled by each doctor.
+
+-- Q16 List all doctors who have more than 1 appointment.
