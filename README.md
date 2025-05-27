@@ -1,4 +1,4 @@
-# 🏥 Database Management System - MySQL Practice (Week 1)
+# Database Management System - MySQL Practice (Week 1)
 Master MySQL database design and operations through practical hospital management scenarios. Build tables, manipulate data, and create powerful queries with interactive learning.
 
 visit the below site for practice
