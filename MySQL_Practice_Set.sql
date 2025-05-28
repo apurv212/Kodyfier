@@ -55,7 +55,11 @@ insert into Appointment (PatientID, DoctorID, AppointmentDate) VALUES
 select Name,Age from Patient;
 
 -- Q8 Find all appointments with 'Dr. Sharma'.
-
+select a.AppointmentID, p.Name as PatientName, a.AppointmentDate
+from Appointment a
+join Doctor d on a.DoctorID = d.DoctorID
+join Patient p on a.PatientID = p.PatientID
+where  d.Name='dr.yukit';
 
 -- Update the age of patient 'Neha' to 61.
 update Patient set Age = 61 where Name = 'neha';
@@ -81,10 +85,33 @@ select count(*) as total_appointment from Appointment;
 
 --Q13 Calculate the total revenue generated from all appointment fees.
 
+alter table Appointment add Fee DECIMAL(10, 2);
+
+update Appointment set Fee = 500 WHERE AppointmentID = 1;
+update  Appointment set Fee = 700 WHERE AppointmentID = 2;
+update  Appointment set Fee = 600 WHERE AppointmentID = 3;
+update  Appointment set Fee = 600 WHERE AppointmentID = 4;
+
+
+select sum(Fee) as totatl_revenue from Appointment;
+
+
+
 -- Q14 Find the average fee per appointment.
 
+select avg(Fee) as avergae_fee from Appointment;
 
 
 -- Q15 Show the number of appointments handled by each doctor.
+select d.Name as Doctor_Name , count(*) as total_appointment
+from Appointment a
+join Doctor d on a.DoctorID = d.doctorID
+group by d.DoctorID;
+
 
 -- Q16 List all doctors who have more than 1 appointment.
+select Name , count(*) as appoint_count
+from Appointment a
+join Doctor d on a.DoctorID = d.doctorID
+group by d.DoctorID
+having count(*)>1;
